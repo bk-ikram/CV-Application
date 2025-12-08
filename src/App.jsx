@@ -2,7 +2,7 @@ import { useState }  from 'react'
 import './App.css'
 import PersonalInfo from './components/PersonalInfo.jsx'
 import Preview from './components/Preview.jsx'
-import {RightChevron,LeftChevron} from './components/Icons.jsx'
+import {RightChevronIcon,LeftChevronIcon,PersonIcon,EducationIcon,SkillsIcon,ExperienceIcon} from './components/Icons.jsx'
 
 
 
@@ -30,12 +30,17 @@ function App() {
               CV Generator
             </div>
             <nav>
-              
+              <ul>
+                <li><button><PersonIcon/></button></li>
+                <li><button><EducationIcon/></button></li>
+                <li><button><SkillsIcon/></button></li>
+                <li><button><ExperienceIcon/></button></li>
+              </ul>
             </nav>
             <button class='toggle-preview'>
               {showPreview ?
-              <RightChevron/>:
-              <LeftChevron/>} 
+              <RightChevronIcon/>:
+              <LeftChevronIcon/>} 
               {showPreview ?
               " Hide" :
               " Show"} 

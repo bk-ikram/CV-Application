@@ -13,6 +13,9 @@
 
 button{
   font-family: "Noto Sans", sans-serif;
+  background: none;
+  border: none;
+  color: inherit;
   
 }
 button.toggle-preview{
@@ -20,6 +23,13 @@ button.toggle-preview{
   background-color: black;
   color: white;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.toggle-preview:hover{
+  background-color: rgba(0,0,0,0.8);
 }
 #content{
   display: grid;
@@ -34,4 +44,25 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: start;
+}
+
+nav ul{
+  display: flex;
+  font-size: 20px;
+  gap: 0.5em;
+  justify-content: space-evenly;
+  list-style-type: none;
+  padding: 5px;
+  border: solid rgb(226, 232, 240) 1px;
+  border-radius: 5px;
+}
+
+nav li{
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+nav li:hover{
+  background: black;
+  color: white;
 }
