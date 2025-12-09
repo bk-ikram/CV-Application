@@ -4,7 +4,7 @@ import { mdiChevronRight, mdiCogs, mdiAccount, mdiSchool, mdiBriefcase } from '@
 
 const navIconSize = 1.3;
 
-function RightChevronIcon(){
+function RightChevronIcon({color="white"}){
     return (
          <Icon path={mdiChevronRight}
         size={1}

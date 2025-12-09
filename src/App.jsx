@@ -1,6 +1,7 @@
 import { useState }  from 'react'
 import './App.css'
 import PersonalInfo from './components/PersonalInfo.jsx'
+import Education from './components/Education.jsx'
 import Preview from './components/Preview.jsx'
 import {RightChevronIcon,LeftChevronIcon,PersonIcon,EducationIcon,SkillsIcon,ExperienceIcon} from './components/Icons.jsx'
 
@@ -8,22 +9,15 @@ import {RightChevronIcon,LeftChevronIcon,PersonIcon,EducationIcon,SkillsIcon,Exp
 
 function App() {
   const SECTIONS = [
-    {index: 0, title: "Personal Info", component: "", icon: <PersonIcon/>},
-    {index: 1 ,title: "Personal Info", component: "", icon: <EducationIcon/>},
-    {index: 2 ,title: "Personal Info", component: "", icon: <SkillsIcon/>},
-    {index: 3 ,title: "Personal Info", component: "", icon: <ExperienceIcon/>}
+    {index: 0, title: "Personal Info", component: <PersonalInfo/>, icon: <PersonIcon/>},
+    {index: 1 ,title: "Education", component: <Education/>, icon: <EducationIcon/>},
+    {index: 2 ,title: "Skills", component: "", icon: <SkillsIcon/>},
+    {index: 3 ,title: "Work Experience", component: "", icon: <ExperienceIcon/>}
   ]
   // The shoe preview state has a value of true when the CV preview is shown, and false when not
   const [showPreview, setShowPreview] = useState(false);
   const [sectionIndex, setSectionIndex] = useState(0);
-  const [personalInfo, setPersonalInfo] = useState({fullname: undefined
-                                                    ,address: undefined
-                                                    ,city: undefined
-                                                    ,zipCode: undefined
-                                                    ,email: undefined
-                                                    ,phone: undefined
-                                                    ,githubURL: undefined
-                                                  });
+  const [personalInfo, setPersonalInfo] = useState({});
   const [education, setEducation] = useState([]);
   const [skills, setSkills] = useState([]);
   const [experience, setExperience] = useState([]);
@@ -32,6 +26,23 @@ function App() {
     setShowPreview(!showPreview);
     document.querySelector("#content").classList.toggle("two-columns");
   }
+
+  function handleNavClick (e) {
+    const target = e.target.closest("button");
+    if(!target)
+      return;
+    const newIndex = target.getAttribute("sectionindexvalue")
+    setSectionIndex(parseInt(newIndex));
+  }
+
+  function handleSectionNavigation (e) {
+    if(e.currentTarget.classList.contains("section-next"))
+      setSectionIndex(sectionIndex + 1);
+    
+    if(e.currentTarget.classList.contains("section-back"))
+      setSectionIndex(sectionIndex - 1);
+  }
+  
 
   return (
     <>
@@ -42,10 +53,15 @@ function App() {
               CV Generator
             </div>
             <nav>
-              <ul>
+              <ul onClick={handleNavClick}>
                 {SECTIONS.map((section) => {
-                  return (<li key={section.index}>
-                            <button section-index={section.index}>{section.icon}</button>
+                  return (<li key={section.index} className={sectionIndex === section.index 
+                                          ? "nav-section-selected"
+                                          : ""
+                                  }>
+                            <button sectionindexvalue={section.index}>
+                              {section.icon}
+                            </button>
                           </li>)
                 })}
                 
@@ -61,16 +77,19 @@ function App() {
               Preview
             </button>
           </header>
-          my main panel
           <div className="section">
             <div className="section-navigation">
                 {sectionIndex > 0 && 
-                  <button className="section-back"><RightChevronIcon color="black"/></button>}
-                {sectionIndex < SECTIONS.length &&
-                  <button className="section-next"><LeftChevronIcon/></button>}
+                  <button className="section-back" onClick= {handleSectionNavigation}>
+                    <LeftChevronIcon color="black"/>
+                  </button>}
+                {sectionIndex < (SECTIONS.length - 1) &&
+                  <button className="section-next" onClick= {handleSectionNavigation}>
+                    <RightChevronIcon/>
+                  </button>}
             </div>
             <div className="section-content">
-
+                  {SECTIONS.find((ele) => ele.index === sectionIndex).component}
             </div>
           </div>
         </div>

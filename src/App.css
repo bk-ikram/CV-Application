@@ -2,7 +2,8 @@
 *{
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-boxs;
 }
 
 .logo{
@@ -16,9 +17,9 @@ button{
   background: none;
   border: none;
   color: inherit;
-  
+  cursor: pointer;
 }
-button.toggle-preview{
+button.toggle-preview, button.section-next{
   padding: 7px 30px; 
   background-color: black;
   color: white;
@@ -63,6 +64,10 @@ nav li{
 }
 
 nav li:hover{
+  background: rgb(241, 245, 249);
+}
+
+li.nav-section-selected{
   background: black;
   color: white;
 }
@@ -82,5 +87,11 @@ nav li:hover{
 .section-navigation{
   display: flex;
   justify-content: space-between;
+}
 
+.section-back{
+  margin-right: auto;
+}
+.section-next{
+  margin-left: auto;
 }
