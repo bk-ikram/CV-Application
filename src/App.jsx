@@ -7,8 +7,15 @@ import {RightChevronIcon,LeftChevronIcon,PersonIcon,EducationIcon,SkillsIcon,Exp
 
 
 function App() {
+  const SECTIONS = [
+    {index: 0, title: "Personal Info", component: "", icon: <PersonIcon/>},
+    {index: 1 ,title: "Personal Info", component: "", icon: <EducationIcon/>},
+    {index: 2 ,title: "Personal Info", component: "", icon: <SkillsIcon/>},
+    {index: 3 ,title: "Personal Info", component: "", icon: <ExperienceIcon/>}
+  ]
   // The shoe preview state has a value of true when the CV preview is shown, and false when not
   const [showPreview, setShowPreview] = useState(false);
+  const [sectionIndex, setSectionIndex] = useState(0);
   const [personalInfo, setPersonalInfo] = useState({fullname: undefined
                                                     ,address: undefined
                                                     ,city: undefined
@@ -21,23 +28,30 @@ function App() {
   const [skills, setSkills] = useState([]);
   const [experience, setExperience] = useState([]);
 
+  function togglePreview () {
+    setShowPreview(!showPreview);
+    document.querySelector("#content").classList.toggle("two-columns");
+  }
+
   return (
     <>
       <div id="content">
         <div id="main-panel">
           <header>
-            <div class='logo'>
+            <div className='logo'>
               CV Generator
             </div>
             <nav>
               <ul>
-                <li><button><PersonIcon/></button></li>
-                <li><button><EducationIcon/></button></li>
-                <li><button><SkillsIcon/></button></li>
-                <li><button><ExperienceIcon/></button></li>
+                {SECTIONS.map((section) => {
+                  return (<li key={section.index}>
+                            <button section-index={section.index}>{section.icon}</button>
+                          </li>)
+                })}
+                
               </ul>
             </nav>
-            <button class='toggle-preview'>
+            <button className='toggle-preview' onClick= {togglePreview}>
               {showPreview ?
               <RightChevronIcon/>:
               <LeftChevronIcon/>} 
@@ -48,6 +62,17 @@ function App() {
             </button>
           </header>
           my main panel
+          <div className="section">
+            <div className="section-navigation">
+                {sectionIndex > 0 && 
+                  <button className="section-back"><RightChevronIcon color="black"/></button>}
+                {sectionIndex < SECTIONS.length &&
+                  <button className="section-next"><LeftChevronIcon/></button>}
+            </div>
+            <div className="section-content">
+
+            </div>
+          </div>
         </div>
         {showPreview && <Preview/>}
 

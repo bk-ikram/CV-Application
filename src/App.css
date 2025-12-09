@@ -66,3 +66,21 @@ nav li:hover{
   background: black;
   color: white;
 }
+
+.section{
+  padding: 30px;
+  border: solid rgb(226, 232, 240) 1px;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 130px;
+  height: 50vh;
+  width: 50%;
+
+
+}
+
+.section-navigation{
+  display: flex;
+  justify-content: space-between;
+
+}

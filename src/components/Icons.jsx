@@ -12,12 +12,11 @@ function RightChevronIcon(){
     )
 }
 
-function LeftChevronIcon(){
+function LeftChevronIcon({color="white"}){
     return (
          <Icon path={mdiChevronRight}
         size = {1}
         rotate={180}
-        color = "white"
       />
     )
 }
