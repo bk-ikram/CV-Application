@@ -19,14 +19,20 @@ button{
   color: inherit;
   cursor: pointer;
 }
-button.toggle-preview, button.section-next{
-  padding: 7px 30px; 
+button.toggle-preview, button.section-next, button.add{
   background-color: black;
   color: white;
+}
+
+button.toggle-preview, button.section-next,.section-back, button.add{
+  padding: 7px 30px; 
   font-weight: 500;
   display: flex;
   align-items: center;
   border-radius: 5px;
+}
+button.section-next,.section-back{
+  padding: 7px 15px; 
 }
 
 .toggle-preview:hover{
@@ -63,10 +69,6 @@ nav li{
   border-radius: 5px;
 }
 
-nav li:hover{
-  background: rgb(241, 245, 249);
-}
-
 li.nav-section-selected{
   background: black;
   color: white;
@@ -87,11 +89,16 @@ li.nav-section-selected{
 .section-navigation{
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .section-back{
   margin-right: auto;
 }
+nav li:hover,.section-back:hover{
+  background: rgb(241, 245, 249);
+}
+
 .section-next{
   margin-left: auto;
 }

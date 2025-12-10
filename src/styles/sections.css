@@ -1,0 +1,66 @@
+h1{
+    font-size: 18px;
+    font-weight: 400px;
+}
+h2{
+    font-size: 15px;
+    color: rgb(71 85 105);
+    font-weight: 400;
+}
+
+div.formSection, .form-subsection{
+    display:flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: end;
+}
+div.formSection{
+    margin-top: 10px;
+}
+
+div.formSection *{
+    flex-grow: 1;
+}
+span.input{
+    display:flex;
+    flex-direction: column;
+}
+
+
+label{
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+input,textarea{
+    height: 32px;
+    border: solid rgb(226, 232, 240) 1px;
+    border-radius: 5px;
+    padding: 0 8px;
+}
+textarea{
+    height: 160px;
+    padding: 10px;
+    resize: none;
+}
+
+span.skill{
+    flex-grow: 1;
+}
+span.tools{
+    flex-grow: 4;
+}
+button.add{
+    margin: 20px auto;
+}
+
+.delete span{
+    display: flex;
+    align-items: center;
+}
+button.delete{
+    background-color: rgb(239 68 68);
+    border-radius: 5px;
+    flex-grow: 0;
+    height: 32px;
+    aspect-ratio: 1;
+}

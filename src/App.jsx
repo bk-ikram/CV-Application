@@ -1,8 +1,10 @@
 import { useState }  from 'react'
-import './App.css'
+import './styles/App.css'
 import PersonalInfo from './components/PersonalInfo.jsx'
 import Education from './components/Education.jsx'
 import Preview from './components/Preview.jsx'
+import Experience from './components/Experience.jsx'
+import Skills from './components/Skills.jsx'
 import {RightChevronIcon,LeftChevronIcon,PersonIcon,EducationIcon,SkillsIcon,ExperienceIcon} from './components/Icons.jsx'
 
 
@@ -11,8 +13,8 @@ function App() {
   const SECTIONS = [
     {index: 0, title: "Personal Info", component: <PersonalInfo/>, icon: <PersonIcon/>},
     {index: 1 ,title: "Education", component: <Education/>, icon: <EducationIcon/>},
-    {index: 2 ,title: "Skills", component: "", icon: <SkillsIcon/>},
-    {index: 3 ,title: "Work Experience", component: "", icon: <ExperienceIcon/>}
+    {index: 2 ,title: "Skills", component: <Skills/>, icon: <SkillsIcon/>},
+    {index: 3 ,title: "Work Experience", component: <Experience/>, icon: <ExperienceIcon/>}
   ]
   // The shoe preview state has a value of true when the CV preview is shown, and false when not
   const [showPreview, setShowPreview] = useState(false);
@@ -42,7 +44,7 @@ function App() {
     if(e.currentTarget.classList.contains("section-back"))
       setSectionIndex(sectionIndex - 1);
   }
-  
+
 
   return (
     <>

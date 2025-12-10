@@ -1,3 +1,5 @@
+import '../styles/sections.css';
+
 export default function PersonalInfo(){
     const initialEntry = {fullname: undefined
                         ,address: undefined
@@ -13,44 +15,44 @@ export default function PersonalInfo(){
         <h2>For Employers to know who you are and how to contact you.</h2>
         <form>
             <div className="formSection">
-                <label>
-                    Fullname
+                <span className="input">
+                    <label htmlFor="name">Fullname</label>
                     <input type="text" id="name"></input>
-                </label>
+                </span>
+                
             </div>
             <div className="formSection">
-                <label>
-                    Address
+                <span className="input">
+                    <label htmlFor="address">Address</label>
                     <input type="text" id="address"></input>
-                </label>
+                </span>
                 <div className="form-subsection">
-                    <label>
-                    City
-                    <input type="text" id="city"></input>
-                </label>
-                <label>
-                    Zip Code
-                    <input type="number" id="zip" min="0"></input>
-                </label>
+                    <span className="input">
+                        <label htmlFor="city">City</label>
+                        <input type="text" id="city"></input>
+                    </span>
+                    <span className="input">
+                        <label htmlFor="zip">Zip Code</label>
+                        <input type="number" id="zip" min="0"></input>
+                    </span>
                 </div>
             </div>
             <div className="formSection">
-                <label>
-                    Email
+                <span className="input">
+                    <label htmlFor="email">Email</label>
                     <input type="email" id="email"></input>
-                </label>
-                <label>
-                    Phone
+                </span>
+                <span className="input">
+                    <label htmlFor="phone">Phone</label>
                     <input type="tel" id="phone"></input>
-                </label>
+                </span>
             </div>
             <div className="formSection">
-                <label>
-                    GitHub Profile URL
+                <span className="input">
+                    <label>GitHub Profile URL</label>
                     <input type="url" id="github"></input>
-                </label>
+                </span>
             </div>
-            
         </form>
         </>
     )

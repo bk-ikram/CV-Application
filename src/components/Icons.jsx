@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
 import Icon from '@mdi/react'
-import { mdiChevronRight, mdiCogs, mdiAccount, mdiSchool, mdiBriefcase } from '@mdi/js'
+import { mdiChevronRight, mdiCogs, mdiAccount, mdiSchool, mdiBriefcase, mdiTrashCan, mdiPlus } from '@mdi/js'
 
 const navIconSize = 1.3;
+const sectionMgmtSize = 0.8;
 
-function RightChevronIcon({color="white"}){
+function RightChevronIcon({color="white", size = 1}){
     return (
          <Icon path={mdiChevronRight}
-        size={1}
+        size={size}
       />
     )
 }
 
-function LeftChevronIcon({color="white"}){
+function LeftChevronIcon({color="white", size = 1}){
     return (
          <Icon path={mdiChevronRight}
-        size = {1}
+        size = {size}
         rotate={180}
       />
     )
@@ -53,5 +54,20 @@ function ExperienceIcon(){
     )
 }
 
-
-export {RightChevronIcon,LeftChevronIcon,PersonIcon,EducationIcon,SkillsIcon,ExperienceIcon};
+function TrashIcon({color ="white"}){
+  return (
+    <Icon path={mdiTrashCan}
+    size={sectionMgmtSize}
+    color= {color}
+    />
+  )
+}
+function PlusIcon({color ="white", size={sectionMgmtSize}}){
+  return (
+    <Icon path={mdiPlus}
+    size= {size}
+    color= {color}
+    />
+  )
+}
+export {RightChevronIcon,LeftChevronIcon,PersonIcon,EducationIcon,SkillsIcon,ExperienceIcon,TrashIcon, PlusIcon};
