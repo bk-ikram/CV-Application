@@ -7,7 +7,7 @@ import {TrashIcon} from './Icons.jsx';
 function SkillEntry(){
     const uid = crypto.randomUUID();
     return(
-        <div className="formSection" id={uid}>
+        <div className="formSection skills" id={uid}>
             <span className="input skill">
                 <label htmlFor={"skill-" + uid}>Skill</label>
                 <input type="text" id={"skill-" + uid}/>

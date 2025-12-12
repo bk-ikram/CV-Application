@@ -3,9 +3,23 @@
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  box-sizing: border-boxs;
+  box-sizing: border-box;
 }
 
+body{
+  height: 100vh;
+}
+
+#root,#content,#main-panel{
+  height: 100%;
+}
+
+
+#main-panel{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .logo{
   font-size: 30px;
   font-weight: 700;
@@ -75,14 +89,15 @@ li.nav-section-selected{
 }
 
 .section{
+  display: flex;
+  flex-direction: column;
   padding: 30px;
   border: solid rgb(226, 232, 240) 1px;
   border-radius: 5px;
   margin: auto;
-  margin-top: 130px;
-  height: 50vh;
+  /*margin-top: clamp(50px,110px,130px);*/
+  height: clamp(50vh,65vh,80vh);
   width: 50%;
-
 
 }
 

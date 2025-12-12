@@ -28,7 +28,7 @@ export default function Education() {
                     <input type="text" id="date"/>
                 </span>
             </div>
-            <div className="formSection">
+            <div className="formSection textarea-section">
                 <span className="input">
                     <label htmlFor="description">Description</label>
                     <textarea id="description" />

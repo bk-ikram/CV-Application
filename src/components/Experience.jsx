@@ -1,5 +1,5 @@
 import '../styles/sections.css';
-
+import EntryNavigation from './EntryNavigation.jsx'
 import { useState }  from 'react'
 export default function Experience(){
 
@@ -27,12 +27,13 @@ export default function Experience(){
                 <input type="text" id="date"/>
             </span>
         </div>
-        <div className="formSection">
+        <div className="formSection textarea-section">
             <span className="input">
                 <label htmlFor="description">Description</label>
                 <textarea id="description"/>
             </span>
         </div>
+        <EntryNavigation handleSectionMgmt/>
         </>
     )
 }
