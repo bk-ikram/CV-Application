@@ -9,6 +9,7 @@ function RightChevronIcon({color="white", size = 1}){
     return (
          <Icon path={mdiChevronRight}
         size={size}
+        color={color}
       />
     )
 }
@@ -54,15 +55,15 @@ function ExperienceIcon(){
     )
 }
 
-function TrashIcon({color ="white"}){
+function TrashIcon({color ="white", size=sectionMgmtSize}){
   return (
     <Icon path={mdiTrashCan}
-    size={sectionMgmtSize}
+    size={size}
     color= {color}
     />
   )
 }
-function PlusIcon({color ="white", size={sectionMgmtSize}}){
+function PlusIcon({color ="white", size=sectionMgmtSize}){
   return (
     <Icon path={mdiPlus}
     size= {size}

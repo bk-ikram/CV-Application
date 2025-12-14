@@ -39,10 +39,45 @@ function App() {
     }
 
   const SECTIONS = [
-    { index: 0, title: "Personal Info", component: <PersonalInfo dataObj={personalInfo} setDataObj={setPersonalInfo} handleInputChange ={makeObjHandler(personalInfo, setPersonalInfo)}/>, icon: <PersonIcon /> },
-    { index: 1, title: "Education", component: <Education  dataObj={education} setDataObj={setEducation} handleInputChange ={makeArrayHandler(education, setEducation)} />, icon: <EducationIcon /> },
-    { index: 2, title: "Skills", component: <Skills />, icon: <SkillsIcon /> },
-    { index: 3, title: "Work Experience", component: <Experience />, icon: <ExperienceIcon /> }
+    { 
+      index: 0
+      ,title: "Personal Info"
+      ,component: <PersonalInfo 
+                    dataObj={personalInfo} 
+                    setDataObj={setPersonalInfo} 
+                    handleInputChange = { makeObjHandler(personalInfo
+                                                        ,setPersonalInfo
+                                                      )
+                                        }
+                  />
+      ,icon: <PersonIcon/> 
+    },
+    { 
+      index: 1
+      ,title: "Education"
+      ,component: <Education  
+                    dataObj={education} 
+                    setDataObj={setEducation} 
+                    handleInputChange = { makeArrayHandler(education
+                                                          ,setEducation
+                                                        )
+                                        }
+                    makeEntryMgmt = {makeEntryMgmt}
+                  />
+      ,icon: <EducationIcon /> 
+    },
+    { 
+      index: 2
+      ,title: "Skills"
+      ,component: <Skills />
+      ,icon: <SkillsIcon /> 
+    },
+    { 
+      index: 3
+      ,title: "Work Experience"
+      ,component: <Experience />
+      ,icon: <ExperienceIcon /> 
+    }
   ]
 
   function togglePreview() {
@@ -66,12 +101,15 @@ function App() {
       setSectionIndex(sectionIndex - 1);
   }
 
-  function handleSectionMgmt(action) {
-    if (action === 'back')
-      setSectionIndex(sectionIndex + 1);
-
-    if (e.currentTarget.classList.contains("section-back"))
-      setSectionIndex(sectionIndex - 1);
+  function makeEntryMgmt(setter) {
+    return {
+      add: () => 
+        setter(prev => [...prev,{}])
+      
+      ,delete: (index) => 
+        setter(prev => prev((_,i) => i !== index))
+    }
+    
   }
 
 

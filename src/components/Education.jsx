@@ -2,10 +2,15 @@ import '../styles/sections.css';
 import EntryNavigation from './EntryNavigation.jsx'
 import { useState } from 'react';
 
-export default function Education({dataObj,handleInputChange}) {
+export default function Education({dataObj, setDataObj, handleInputChange, makeEntryMgmt}) {
+    console.log("render");
     const [entryIndex, setEntryIndex] = useState(0);
+
+    console.log(`current index is ${entryIndex}`);
     //i is declared for brevity.
     const i = entryIndex;
+    //Get number of items in dataObj;
+    const numEntries = dataObj.length;
 
     function handleLocalChange(e){
         const field = e.target.id;
@@ -38,8 +43,13 @@ export default function Education({dataObj,handleInputChange}) {
                     <textarea id="description"  onChange={handleLocalChange} value={(dataObj[i]).description || ''}/>
                 </span>
             </div>
-            {//<EntryNavigation handleSectionMgmt/>
-}
+            <EntryNavigation 
+                numEntries = {numEntries}
+                currentIndex = {entryIndex}
+                setEntryIndex = {setEntryIndex}
+                handleEntryMgmt = {makeEntryMgmt(setDataObj)}
+            />
+
         </>
     )
 }

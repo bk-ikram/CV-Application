@@ -88,14 +88,26 @@ button.add{
     align-items: center;
     justify-content: center;
 }
-button.delete{
-    background-color: rgb(239 68 68);
+
+.entryMgmt button, .skills button{
+    background-color: rgb(0 0 0);
     border-radius: 5px;
     flex-grow: 0;
     height: 32px;
     aspect-ratio: 1;
 }
+button.delete{
+    background-color: rgb(239 68 68);
+}
 
 .entryMgmt{
     margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.entryMgmt .rightIcons{
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
 }
