@@ -30,10 +30,18 @@ div.formSection.skills{
     align-items: end;
 }
 
-div.formSection span, div.formSection input{
-    flex-grow: 1;
+span.input{
+    display:flex;
+    flex-direction: column;
 }
     
+div.formSection > .input,
+.form-subsection > .input,
+.form-subsection {
+    flex: 1 1 0;   /* grow if needed, but also shrink */
+    min-width: 0;
+}
+
 div.formSection{
     margin-top: 10px;
 }
@@ -45,12 +53,6 @@ div.formSection{
     align-items: stretch;
 
 }
-
-span.input{
-    display:flex;
-    flex-direction: column;
-}
-
 
 label{
     font-size: 15px;
@@ -66,11 +68,8 @@ input,textarea{
 }
 textarea{
     flex: 1;
-    /*height: 160px;*/
     padding: 10px;
     resize: none;
-    /*min-height: 1em;
-    max-height: 10em;*/
     min-height: 0;
 }
 

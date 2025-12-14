@@ -2,13 +2,17 @@ import '../styles/sections.css';
 import EntryNavigation from './EntryNavigation.jsx'
 import { useState } from 'react';
 
-function handleSectionMgmt(){
-    alert('this should delete');
-}
-
-export default function Education() {
+export default function Education({dataObj,handleInputChange}) {
     const [entryIndex, setEntryIndex] = useState(0);
-    const [currentEntry, setCurrentEntry] = useState({})
+    //i is declared for brevity.
+    const i = entryIndex;
+
+    function handleLocalChange(e){
+        const field = e.target.id;
+        const value = e.target.value;
+        handleInputChange(i,field,value);
+    }
+
     return (
         <>
             <h1>Education</h1>
@@ -17,24 +21,25 @@ export default function Education() {
             <div className="formSection">
                 <span className="input">
                     <label htmlFor="school">School name</label>
-                    <input type="text" id="school" />
+                    <input type="text" id="school" onChange={handleLocalChange} value={(dataObj[i]).school || ''}/>
                 </span>
                 <span className="input">
                     <label htmlFor="location">Location</label>
-                    <input type="text" id="Location"/>
+                    <input type="text" id="location" onChange={handleLocalChange} value={(dataObj[i]).location || ''}/>
                 </span>
                 <span className="input">
                     <label htmlFor="date">Date</label>
-                    <input type="text" id="date"/>
+                    <input type="text" id="date" onChange={handleLocalChange} value={(dataObj[i]).date || ''}/>
                 </span>
             </div>
             <div className="formSection textarea-section">
                 <span className="input">
                     <label htmlFor="description">Description</label>
-                    <textarea id="description" />
+                    <textarea id="description"  onChange={handleLocalChange} value={(dataObj[i]).description || ''}/>
                 </span>
             </div>
-            <EntryNavigation handleSectionMgmt/>
+            {//<EntryNavigation handleSectionMgmt/>
+}
         </>
     )
 }
