@@ -7,12 +7,13 @@ function EntryNavigation({numEntries = 1, currentIndex = 0, setEntryIndex, handl
         const action = e.currentTarget.getAttribute("action");
         switch(action) {
             case "add":
-                handleEntryMgmt.add();
+                handleEntryMgmt.add({});
                 setEntryIndex(currentIndex + 1);
                 break;
             case "delete":
-                if(numEntries === 1){
-                    handleEntryMgmt.add();
+                if(currentIndex === 0){
+                    //if the first item is the only entry, add an empty entry first
+                    numEntries === 1 && handleEntryMgmt.add();
                     handleEntryMgmt.delete(currentIndex);
                     setEntryIndex(currentIndex);
                 }
@@ -40,8 +41,8 @@ function EntryNavigation({numEntries = 1, currentIndex = 0, setEntryIndex, handl
             <span className='rightIcons'>
                 {currentIndex > 0 
                 && <button action="back" onClick={handleClick}><LeftChevronIcon/></button>}
-                {((currentIndex < lastIndex ) || (numEntries > 1))
-                    &&  <button action="back" onClick={handleClick}><RightChevronIcon/></button>
+                {((currentIndex < lastIndex ) && (numEntries > 1))
+                    &&  <button action="next" onClick={handleClick}><RightChevronIcon/></button>
                 }
                 {currentIndex === lastIndex
                     &&  <button action="add" onClick={handleClick}><PlusIcon/></button>

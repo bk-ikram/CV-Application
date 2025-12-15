@@ -19,6 +19,7 @@ function LeftChevronIcon({color="white", size = 1}){
          <Icon path={mdiChevronRight}
         size = {size}
         rotate={180}
+        color={color}
       />
     )
 }

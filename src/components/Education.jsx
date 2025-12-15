@@ -3,10 +3,7 @@ import EntryNavigation from './EntryNavigation.jsx'
 import { useState } from 'react';
 
 export default function Education({dataObj, setDataObj, handleInputChange, makeEntryMgmt}) {
-    console.log("render");
     const [entryIndex, setEntryIndex] = useState(0);
-
-    console.log(`current index is ${entryIndex}`);
     //i is declared for brevity.
     const i = entryIndex;
     //Get number of items in dataObj;
